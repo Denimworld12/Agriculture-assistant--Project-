@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Assistant</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <h1>Agriculture Assistant</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="Aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-content">
+            <div class="title">
+                <h1>Agriculture Assistant</h1>
+                <p>Your go-to tool for farming insights</p>
+            </div>
+            <div class="login-button-container">
+                <button id="loginButton"><a href="newlogin.html">Log Out</a></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="news-container">
+        <div class="news-slider" id="newsSlider">
+            <div class="news-item">Latest Agriculture News 1: Crop Production Rises...</div>
+            <div class="news-item">Latest Agriculture News 2: Government Announces New Subsidy...</div>
+            <div class="news-item">Latest Agriculture News 3: Innovative Techniques in Farming...</div>
+        </div>
+    </div>
+
+    <main>
+        <section class="options">
+            <div class="option">
+                <img src="crops5.jpg" alt="Best Selling Crops">
+                <h2>Best Selling Crops</h2>
+                <p>Discover the most profitable crops in the market.</p>
+                <a href="market.html">Learn More</a>
+            </div>
+
+            <div class="option">
+                <img src="gov.jpeg" alt="Government Scheme">
+                <h2>Government Scheme</h2>
+                <p>More about Government Scheme</p>
+                <a href="https://hindi.economictimes.com/kheti-kisani">Know More</a>
+            </div>
+
+            <div class="option">
+                <img src="download.jpeg" alt="About us">
+                <h2>About Us</h2>
+                <p>Know more about us</p>
+                <a href="Aboutus.html">Know More</a>
+            </div>
+
+            <!-- Commented options -->
+            <!--
+            <div class="option">
+                <img src="crops1.jpg" alt="Latest Techniques">
+                <h2>Latest Agriculture Techniques</h2>
+                <p>Learn about the newest techniques to improve your yield.</p>
+                <a href="#">Learn More</a>
+            </div>
+
+            <div class="option">
+                <img src="crops2.jpg" alt="Seasonal Crops">
+                <h2>Seasonal Crops</h2>
+                <p>Find out the best crops to plant this season.</p>
+                <a href="#">Learn More</a>
+            </div>
+            
+            <div class="option">
+                <img src="crops4.jpg" alt="Market Prices">
+                <h2>Market Prices</h2>
+                <p>Stay updated with the latest market prices of your crops.</p>
+                <a href="#">Learn More</a>
+            </div>
+            
+            <div class="option">
+                <img src="com.jpeg" alt="Community">
+                <h2>Community</h2>
+                <p>Know more about Community</p>
+                <a href="#">Know More</a>
+            </div>
+            -->
+        </section>
+        <button class="explore-all">Explore All Options</button>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
+            <div class="social-links">
+                <a href="#">Facebook</a> | 
+                <a href="#">Twitter</a> | 
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Infinite scroll for news slider
+        let newsSlider = document.getElementById('newsSlider');
+        let scrollAmount = 0;
+        function scrollNews() {
+            scrollAmount -= 1;
+            if (scrollAmount <= -newsSlider.scrollWidth / 3) {
+                scrollAmount = 0;
+            }
+            newsSlider.style.transform = `translateX(${scrollAmount}px)`;
+        }
+        setInterval(scrollNews, 20); // Adjust speed
+
+        // Fix login button clickability
+        document.getElementById("loginButton").onclick = function() {
+            alert("Login clicked!");
+        };
+    </script>
+</body>
+
+</html>

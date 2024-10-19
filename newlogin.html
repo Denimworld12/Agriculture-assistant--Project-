@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c5dfcb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin-bottom: 50px; /* Space between login and footer */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 94%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .link a {
+            color: blue;
+        }
+
+        /* Footer Styling */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #FFDDC1;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .customer-care {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .customer-care p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Sign In</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="error" id="errorMessage"></div>
+        </form>
+        <div class="link">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
+            <div class="social-links">
+                <a href="#">Facebook</a> | 
+                <a href="#">Twitter</a> | 
+                <a href="#">Instagram</a>
+            </div>
+            <div class="customer-care">
+                <p>Customer Care: Call us at +1-800-123-4567</p>
+                <p>If you need help while logging in, visit our <a href="#">Help Center</a> or <a href="#">FAQ</a>.</p>
+                <p><a href="#">Report an issue</a></p> <!-- Option for reporting issues -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form submission
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (username === "" || password === "") {
+                errorMessage.textContent = "Please fill in both username and password.";
+            } else {
+                errorMessage.textContent = "";
+                // Simulate a successful login and redirect to main.html
+                window.location.href = "main.html";  // Redirect to the main page
+            }
+        });
+    </script>
+
+</body>
+</html>

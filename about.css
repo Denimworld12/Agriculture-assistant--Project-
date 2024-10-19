@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.header-content {
+    padding: 20px;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    color: white;
+    text-align: center;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: 'Georgia', serif;
+}
+
+.title p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+    font-family: 'Courier New', monospace;
+}
+
+main {
+    padding: 20px;
+}
+
+.about-us, .mission, .team {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about-us h2, .mission h2, .team h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.about-us p, .mission p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.mission img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to accommodate all members */
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.member {
+    text-align: center;
+    flex: 1;
+    max-width: 250px; /* Adjust max width to fit your layout */
+}
+
+.member img {
+    width: 100px; /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    border-radius: 50%; /* Circular images */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.member h3 {
+    margin: 15px 0 5px;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+.member p {
+    font-size: 1em;
+    color: #777;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+footer {
+    background-color: #8B4513; /* Dull soil color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #FFDDC1; /* Light color for contrast */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+}

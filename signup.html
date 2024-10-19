@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        * {
+            box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c5dfcb;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            flex-grow: 1; /* Allow the container to grow and take available space */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .role-selection {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .role-selection img {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 10px;
+        }
+
+        .role-selection img.selected {
+            border-color: #007BFF;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .link a {
+            color: blue;
+        }
+
+        footer {
+            background-color: #8B4513; /* Dull soil color */
+            color: white;
+            padding: 20px; /* Increased padding for better spacing */
+            text-align: center;
+            width: 100%; /* Ensure it stretches the full width */
+            position: relative;
+            bottom: 0;
+            margin-top: 30px; /* Added margin to create distance from signup container */
+        }
+
+        footer a {
+            color: #FFDDC1; /* Light color for contrast */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .customer-care {
+            margin-top: 15px;
+            font-size: 14px; /* Slightly smaller font size for customer care */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="role-selection">
+                <div>
+                    <img src="farmer.png" alt="Farmer" id="farmer" class="role-img" onclick="selectRole('farmer')">
+                    <p>Farmer</p>
+                </div>
+                <div>
+                    <img src="supplier.png" alt="Supplier" id="supplier" class="role-img" onclick="selectRole('supplier')">
+                    <p>Supplier</p>
+                </div>
+                <div>
+                    <img src="user.png" alt="Consumer" id="consumer" class="role-img" onclick="selectRole('consumer')">
+                    <p>Consumer</p>
+                </div>
+            </div>
+            <input type="hidden" id="role" name="role">
+
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="error" id="signupError"></div>
+        </form>
+        <div class="link">
+            <p>Do you have an account? <a href="newlogin.html">Log in </a></p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
+            <div class="social-links">
+                <a href="#">Facebook</a> | 
+                <a href="#">Twitter</a> | 
+                <a href="#">Instagram</a>
+            </div>
+            <div class="customer-care">
+                <p>Customer Care: Call us at +1-800-123-4567</p>
+                <p>If you need help while logging in, visit our <a href="#">Help Center</a> or <a href="#">FAQ</a>.</p>
+                <p><a href="#">Report an issue</a></p> <!-- Option for reporting issues -->
+            </div>
+        </div>
+    </footer>
+
+  
+
+    <script>
+        let selectedRole = null;
+
+        function selectRole(role) {
+            selectedRole = role;
+            document.getElementById('role').value = role;
+
+            // Remove the 'selected' class from all role images
+            const roleImages = document.getElementsByClassName('role-img');
+            for (let img of roleImages) {
+                img.classList.remove('selected');
+            }
+
+            // Add 'selected' class to the clicked image
+            document.getElementById(role).classList.add('selected');
+        }
+
+        const signupForm = document.getElementById('signupForm');
+        const signupError = document.getElementById('signupError');
+
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const role = document.getElementById('role').value;
+
+            if (fullname === "" || email === "" || password === "" || role === "") {
+                signupError.textContent = "Please fill in all fields and select a role.";
+            } else {
+                signupError.textContent = "";
+                alert('Registration successful!');
+                window.location.href = "main.html"; // Redirect to main page after successful signup
+            }
+        });
+    </script>
+
+</body>
+</html>
