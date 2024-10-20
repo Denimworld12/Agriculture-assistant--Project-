@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Schemes</title>
+    <link rel="stylesheet" href="Govscheme.css"> <!-- Link to your separate CSS file -->
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <h1>Agriculture Assistant</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="main.html">Home</a></li> <!-- Link to homepage -->
+                <li><a href="#">Profile</a></li>
+                <li><a href="Aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-content">
+            <div class="title">
+                <h1>Government Schemes</h1>
+                <p>Explore various government schemes for agriculture</p>
+            </div>
+            <div class="back-btn-container">
+                <a href="main.html" class="back-btn">Back</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="options">
+            <!-- Loop for 10 government schemes -->
+            <div class="option" onclick="openPopup('popup1')">
+                <img src="your-image-path-1.jpg" alt="Soil Health">
+                <h2>Soil Health, Soil Conservation and Fertilizers</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup2')">
+                <img src="your-image-path-2.jpg" alt="Seeds">
+                <h2>Seeds</h2>
+            </div>
+
+            <!-- <div class="option" onclick="openPopup('popup3')">
+                <img src="your-image-path-3.jpg" alt="Irrigation">
+                <h2>Irrigation</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup4')">
+                <img src="your-image-path-4.jpg" alt="Training">
+                <h2>Training and Extension for farmers</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup5')">
+                <img src="your-image-path-5.jpg" alt="Machinery">
+                <h2>Machinery and Technology</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup6')">
+                <img src="your-image-path-6.jpg" alt="Agriculture Credit">
+                <h2>Agriculture Credit</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup7')">
+                <img src="your-image-path-7.jpg" alt="Insurance">
+                <h2>Agricultural Insurance</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup8')">
+                <img src="your-image-path-8.jpg" alt="Plant protection">
+                <h2>Plant protection</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup9')">
+                <img src="your-image-path-9.jpg" alt="Horticulture">
+                <h2>Horticulture</h2>
+            </div>
+
+            <div class="option" onclick="openPopup('popup10')">
+                <img src="your-image-path-10.jpg" alt="Marketing">
+                <h2>Agricultural Marketing</h2>
+            </div> -->
+        </section>
+    </main>
+
+    <!-- Popups for each scheme -->
+    <div id="popup1" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup1')">&times;</span>
+            <h2>Soil Health, Soil Conservation and Fertilizers</h2>
+            <ul>
+                <li><img src="link-icon.png" alt="Link Icon"> <a href="#">Link 1</a></li>
+                <li><img src="link-icon.png" alt="Link Icon"> <a href="#">Link 2</a></li>
+                <li><img src="link-icon.png" alt="Link Icon"> <a href="#">Link 3</a></li>
+            </ul>
+        </div>
+    </div>
+   
+</main>
+    <!-- Repeat popups for other schemes (popup2 to popup10) -->
+
+    <footer>
+        <div class="footer-container">
+            <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
+            <div class="social-links">
+                <a href="#">Facebook</a> |
+                <a href="#">Twitter</a> |
+                <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-.git">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
