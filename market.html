@@ -22,7 +22,7 @@
             <p>Price: 2400 per quintal</p>
             <p>Rating: ⭐⭐⭐⭐☆ (4.0)</p>
             <p class="description">High-quality basmati rice, suitable for everyday meals.</p>
-            <button class="buy-button">Buy Now</button>
+            <div class="buy-button" id="buyRice">Buy Now</div>
         </div>
 
         <div class="product-card">
@@ -31,7 +31,7 @@
             <p>Price: 5000 per quintal</p>
             <p>Rating: ⭐⭐⭐⭐☆ (4.2)</p>
             <p class="description">Organic wheat, rich in nutrients and fiber.</p>
-            <button class="buy-button">Buy Now</button>
+            <div class="buy-button" id="buyWheat">Buy Now</div>
         </div>
 
         <div class="product-card">
@@ -40,7 +40,7 @@
             <p>Price: 800 per kg</p>
             <p>Rating: ⭐⭐⭐⭐☆ (4.5)</p>
             <p class="description">Eco-friendly fertilizer to boost crop yield.</p>
-            <button class="buy-button">Buy Now</button>
+            <div class="buy-button" id="buyFertilizer">Buy Now</div>
         </div>
 
         <div class="product-card">
@@ -49,7 +49,7 @@
             <p>Price: 1200000</p>
             <p>Rating: ⭐⭐⭐⭐⭐ (4.8)</p>
             <p class="description">High-performance tractor with advanced features.</p>
-            <button class="buy-button">Buy Now</button>
+            <div class="buy-button" id="buyTractor">Buy Now</div>
         </div>
 
         <div class="product-card">
@@ -58,7 +58,7 @@
             <p>Price: 1000 per kg</p>
             <p>Rating: ⭐⭐⭐⭐⭐ (4.9)</p>
             <p class="description">High germination rate seeds for various crops.</p>
-            <button class="buy-button">Buy Now</button>
+            <div class="buy-button" id="buySeeds">Buy Now</div>
         </div>
 
         <div class="product-card">
@@ -67,18 +67,46 @@
             <p>Price: 500 per liter</p>
             <p>Rating: ⭐⭐⭐⭐☆ (4.3)</p>
             <p class="description">Eco-friendly pesticide to protect your crops.</p>
-            <button class="buy-button">Buy Now</button>
+            <div class="buy-button" id="buyPesticide">Buy Now</div>
         </div>
     </div>
+
     <footer>
         <div class="footer-container">
             <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
             <div class="social-links">
-                <a href="#">LinkedIn</a> |
+                <a href="">LinkedIn</a> |
                 <a href="#">X</a> |
                 <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-.git">GitHub</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Add event listeners for "Buy Now" buttons to redirect to purchase pages
+        document.getElementById("buyRice").onclick = function() {
+            window.location.href = "https://www.amazon.in/Daawat-Rozana-Super-Basmati-Rice/dp/B075754F89/ref=sr_1_5?crid=3FBIFY3U59HXO&dib=eyJ2IjoiMSJ9.miS9RGV6g8bDQpOT8GbOTmqArwkY2zyXq5Nq-On3H7o7CHbdhumTQpYGd25oPPRrHxHy9yE5qRsXQVlzZmOgoo2R3tLh2-HqPEx9QjLpe9p7UnjVBVQPSAa5Y0De2h-GnDAHh_zrl1FAaMyj1z5Rq6vM8OJgmMxyjrTHN7Ri1mfeacFcrNRnqeeTGFkzL932gZzL-6nmNbVqLyRdd5vxWuyEB8BsAJtugOeP0PhkhidLA0X-1YQE7HI-XNyklNGJWL0fxZL0nntI5ZT2dSbSYAgJ292uQtDTQhd7iQPE4us.ncrF-uSaK4Lhn18BoADuCt8ed-7XU62Vrp7bqSyGVw8&dib_tag=se&keywords=rice&nsdOptOutParam=true&qid=1729806817&sprefix=rice%2Caps%2C235&sr=8-5";
+        };
+
+        document.getElementById("buyWheat").onclick = function() {
+            window.location.href = "https://www.amazon.in/Gropure-Organic-Wheat-Sharbati-5kg/dp/B085QMMKWK/ref=sr_1_5?crid=2QJSV89HF51HD&dib=eyJ2IjoiMSJ9.I0L-LaID31seh5P-_PBSt_QCjyYk1SIEH64TAuNVHpSwAXAUI_YHfRs-YjLjacDy3vrZGY_3OgKSmC2g1f2hc6wgZQtN-hdJs64a8gbu7d40tgPNDyP-HUqrNLbs8_E5WUMgkUTQrx4tvkEcyp8rKk6XGtQRFW7JsW_qhgiPREfLcLc16BeNEe2Hh0hFAa284Z1BbHl5Yrpto90JphgDjGIv39xDG_IvlzJp61hhjUtYJ_ZaPcTcdRjZwIvbk8o7RvpWfieHMtNjNSLBZXP5JYv-nSMsK1yjFYYc0jfuClA.PruQAATFk__WBW2fVQt_dRkeJhCr6gxO1eLF5d-CUSc&dib_tag=se&keywords=wheat&qid=1729806912&sprefix=wheat%2Caps%2C187&sr=8-5&th=1";
+        };
+
+        document.getElementById("buyFertilizer").onclick = function() {
+            window.location.href = "https://www.bighaat.com/collections/plant-nutrition";
+        };
+
+        document.getElementById("buyTractor").onclick = function() {
+            window.location.href = "https://example.com/tractor-purchase";
+        };
+
+        document.getElementById("buySeeds").onclick = function() {
+            window.location.href = "https://www.bighaat.com/collections/seeds-online";
+        };
+
+        document.getElementById("buyPesticide").onclick = function() {
+            window.location.href = "https://www.bighaat.com/collections/insecticides";
+        };
+    </script>
 </body>
 </html>
