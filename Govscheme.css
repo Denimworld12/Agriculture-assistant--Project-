@@ -13,16 +13,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #e0f7e9;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
 
 header {
     background: linear-gradient(90deg, #4CAF50, #81C784);
@@ -121,50 +111,63 @@ header {
     margin: 10% auto;
     padding: 20px;
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 10px;
 }
 
 .popup-content h2 {
     color: #4CAF50;
+    text-align: center;
 }
 
-.popup-content ul {
-    list-style-type: none;
+.icon-links {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-.popup-content ul li {
-    margin: 10px 0;
+.icon {
+    position: relative;
+    text-align: center;
 }
 
-.popup-content ul li img {
-    width: 20px;
-    margin-right: 10px;
+.icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.3s;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    cursor: pointer;
+.icon img:hover {
+    transform: scale(1.1);
 }
 
-.close:hover {
-    color: black;
+.ghost-link {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-size: 12px;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
 }
-main{
-    flex:1;
-    padding: 20px;
+
+.icon:hover .ghost-link {
+    opacity: 1;
 }
-/* Footer */
+
 footer {
     background-color: #8B4513; /* Dull soil color */
     color: white;
     padding: 20px;
     text-align: center;
+    position: relative;
+    bottom: 0;
     width: 100%;
-    margin-top: auto;
-
 }
 
 footer a {
@@ -180,23 +183,4 @@ footer a:hover {
     margin-top: 10px;
 }
 
-/* Button for "Back to Main Site" */
-.back-btn-container {
-    text-align: center;
-    margin-top: 20px;
-}
 
-.back-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease;
-}
-
-.back-btn:hover {
-    background-color: #45a049;
-}

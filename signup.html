@@ -144,7 +144,7 @@
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" minlength="8" maxlength="16" required>
             </div>
 
             <div class="role-selection">
@@ -174,8 +174,8 @@
         <div class="footer-container">
             <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
             <div class="social-links">
-                <a href="#">Facebook</a> | 
-                <a href="#">Twitter</a> | 
+                <a href="#">LinkedIn</a> | 
+                <a href="#">X</a> | 
                 <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-.git">GitHub</a>
             </div>
             <div class="customer-care">
@@ -218,7 +218,10 @@
 
             if (fullname === "" || email === "" || password === "" || role === "") {
                 signupError.textContent = "Please fill in all fields and select a role.";
-            } else {
+            }else if (password.length < 8 || password.length > 16) {
+                signupError.textContent = "Password must be between 8 and 16 characters.";
+            } 
+            else {
                 signupError.textContent = "";
                 alert('Registration successful!');
                 window.location.href = "main.html"; // Redirect to main page after successful signup

@@ -124,7 +124,7 @@
         <form id="loginForm">
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" minlength="8" maxlength="16" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
@@ -143,9 +143,9 @@
         <div class="footer-container">
             <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
             <div class="social-links">
-                <a href="#">Facebook</a> | 
-                <a href="#">Twitter</a> | 
-                <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-.git">GitHub</a>
+                <a href="#">LinkedIn</a> |
+                <a href="#">X</a> |
+                <a href="https://X.com/Denimworld12/Agriculture-assistant--Project-.git">GitHub</a>
             </div>
             <div class="customer-care">
                 <p>Customer Care: Call us at +1-800-123-4567</p>
@@ -167,7 +167,10 @@
             
             if (username === "" || password === "") {
                 errorMessage.textContent = "Please fill in both username and password.";
-            } else {
+            } else if (username.length < 8 || username.length > 16) {
+                errorMessage.textContent = "Username must be between 8 and 16 characters.";
+            } 
+             else {
                 errorMessage.textContent = "";
                 // Simulate a successful login and redirect to main.html
                 window.location.href = "main.html";  // Redirect to the main page
