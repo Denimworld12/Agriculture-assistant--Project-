@@ -89,17 +89,19 @@ header {
 
 .news-slider {
     display: flex;
-    transition: transform 0.1s linear;
+    transition: transform 0.1s ease; /* Smooth linear movement */
+    will-change: transform; /* Optimizes the performance of transitions */
 }
 
 .news-item {
+    min-width: 300px;
     padding: 20px;
+    margin-right: 20px;
     background-color: #4CAF50;
     color: white;
-    margin-right: 20px;
     border-radius: 10px;
-    min-width: 300px;
     text-align: center;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 main {

@@ -15,7 +15,7 @@
                 <h1>Agriculture Assistant</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
+                <li><a href="main.html">Home</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="Aboutus.html">About Us</a></li>
             </ul>
@@ -33,11 +33,11 @@
     </header>
 
     <div class="news-container">
-        <a href="https://example.com" target="_blank"> <!-- Add the URL you want to redirect to -->
+        <a href="" target="_blank"> <!-- Add the URL you want to redirect to -->
             <div class="news-slider" id="newsSlider">
-                <div class="news-item">Latest Agriculture News 1: Crop Production Rises...</div>
-                <div class="news-item">Latest Agriculture News 2: Government Announces New Subsidy...</div>
-                <div class="news-item">Latest Agriculture News 3: Innovative Techniques in Farming...</div>
+                <div class="news-item">News 1: Assam achieves 85% export growth in agriculture with supportive policies, says Minister Atul Bora...</div>
+                <div class="news-item">News 2: Mitigating emissions from agriculture...</div>
+                <div class="news-item">News 3: ‘Yield’ can’t be the sole indicator for agriculture ...</div>
             </div>
         </a>
     </div>
@@ -64,43 +64,14 @@
                 <a href="Aboutus.html">Know More</a>
             </div>
 
-            <!-- Commented options -->
-            <!--
-            <div class="option">
-                <img src="crops1.jpg" alt="Latest Techniques">
-                <h2>Latest Agriculture Techniques</h2>
-                <p>Learn about the newest techniques to improve your yield.</p>
-                <a href="#">Learn More</a>
-            </div>
-
-            <div class="option">
-                <img src="crops2.jpg" alt="Seasonal Crops">
-                <h2>Seasonal Crops</h2>
-                <p>Find out the best crops to plant this season.</p>
-                <a href="#">Learn More</a>
-            </div>
-            
-            <div class="option">
-                <img src="crops4.jpg" alt="Market Prices">
-                <h2>Market Prices</h2>
-                <p>Stay updated with the latest market prices of your crops.</p>
-                <a href="#">Learn More</a>
-            </div>
-            
-            <div class="option">
-                <img src="com.jpeg" alt="Community">
-                <h2>Community</h2>
-                <p>Know more about Community</p>
-                <a href="#">Know More</a>
-            </div>
-            -->
+          
         </section>
         <button class="explore-all">Explore All Options</button>
     </main>
 
     <footer>
         <div class="footer-container">
-            <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
+            <p>Contact us at: <a href="info@farmassistant.com">farmassistant@gmail.com</a></p>
             <div class="social-links">
                 <a href="#">LinkedIn</a> |
                 <a href="#">X</a> |
@@ -110,18 +81,27 @@
     </footer>
 
     <script>
-        // Infinite scroll for news slider
-        let newsSlider = document.getElementById('newsSlider');
-        let scrollAmount = 0;
-        function scrollNews() {
-            scrollAmount -= 1;
-            if (scrollAmount <= -newsSlider.scrollWidth / 3) {
-                scrollAmount = 0;
-            }
-            newsSlider.style.transform = `translateX(${scrollAmount}px)`;
-        }
-        setInterval(scrollNews, 20); // Adjust speed
-        
+  const newsSlider = document.getElementById('newsSlider');
+let scrollAmount = 0;
+let speed = 1; // Adjust speed for smoothness
+let scrollWidth = newsSlider.scrollWidth; // Total width of the slider
+
+function scrollNews() {
+    scrollAmount -= speed;
+
+    // Reset scrollAmount when it reaches the end
+    if (Math.abs(scrollAmount) >= scrollWidth) {
+        scrollAmount = 0; // Reset to the beginning
+    }
+
+    // Apply the transformation to create the scrolling effect
+    newsSlider.style.transform = `translateX(${scrollAmount}px)`;
+}
+
+// Call the function continuously to create the scrolling effect
+setInterval(scrollNews, 25); // Adjust speed if necessary
+
+
     // Make the news slider clickable
     newsSlider.addEventListener('click', function() {
         window.location.href = "Govscheme.html"; // Redirect to your desired URL

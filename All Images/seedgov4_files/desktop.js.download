@@ -1,0 +1,123 @@
+(function () {
+  // Create the floating button
+  var chatbotButton = document.createElement("div");
+  chatbotButton.id = "chatbot-button";
+  chatbotButton.style.position = "fixed";
+  chatbotButton.style.bottom = "20px";
+  chatbotButton.style.right = "2vw";
+  chatbotButton.style.width = "60px";
+  chatbotButton.style.height = "60px";
+  chatbotButton.style.backgroundColor = "#007bff";
+  chatbotButton.style.borderRadius = "50%";
+  chatbotButton.style.cursor = "pointer";
+  chatbotButton.style.zIndex = "1001"; // Ensure it's above the blur overlay
+  chatbotButton.style.display = "flex";
+  chatbotButton.style.alignItems = "center";
+  chatbotButton.style.justifyContent = "center";
+  chatbotButton.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)";
+  chatbotButton.innerHTML =
+    '<img src="https://cdn.myscheme.in/images/chaticon/icon_white.svg" alt="Chat" style="width: 30px; height: 30px;">';
+  document.body.appendChild(chatbotButton);
+
+  // Create the overlay for the blurred background
+  var blurOverlay = document.createElement("div");
+  blurOverlay.id = "blur-overlay";
+  blurOverlay.style.position = "fixed";
+  blurOverlay.style.top = "0";
+  blurOverlay.style.left = "0";
+  blurOverlay.style.width = "100vw";
+  blurOverlay.style.height = "100vh";
+  blurOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.1)"; // Semi-transparent background
+  blurOverlay.style.backdropFilter = "blur(10px)"; // Apply the blur
+  blurOverlay.style.zIndex = "999"; // Behind the chatbot but above page content
+  blurOverlay.style.display = "none"; // Hidden by default
+  document.body.appendChild(blurOverlay);
+
+  // Create the chat window (hidden by default)
+  var chatbotWindow = document.createElement("div");
+  chatbotWindow.id = "chatbot-window";
+  chatbotWindow.style.position = "fixed";
+  chatbotWindow.style.bottom = "0px";
+  chatbotWindow.style.right = "0px";
+  chatbotWindow.style.width = "100vw";
+  chatbotWindow.style.height = "95vh";
+  chatbotWindow.style.backgroundColor = "white";
+  // chatbotWindow.style.border = "1px solid #ddd";
+  // chatbotWindow.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.2)";
+  chatbotWindow.style.borderRadius = "40px 40px 0px 0px";
+  chatbotWindow.style.overflow = "hidden";
+  chatbotWindow.style.zIndex = "1000"; // Above the blur
+  chatbotWindow.style.display = "none";
+  chatbotWindow.innerHTML =
+    '<iframe id="chatbot-iframe" src="https://aistore.myscheme.in/6t4rIofAaIAEgu2P9lmtD?isEmbed=true" style="width: 100%; height: 100%; border: none;"></iframe>';
+  document.body.appendChild(chatbotWindow);
+
+  // Get the iframe element
+  var chatbotIframe = document.getElementById("chatbot-iframe").contentWindow;
+
+  // Create the close button
+  var closeChatbotButton = document.createElement("div");
+  closeChatbotButton.id = "close-chatbot-button";
+  closeChatbotButton.style.position = "fixed";
+  closeChatbotButton.style.top = "6vh";
+  closeChatbotButton.style.right = "20px";
+  closeChatbotButton.style.width = "30px";
+  closeChatbotButton.style.height = "30px";
+  closeChatbotButton.style.padding = "4px";
+  // closeChatbotButton.style.backgroundColor = "#111";
+  closeChatbotButton.style.color = "#111";
+  // closeChatbotButton.style.borderColor = "#fff";
+  // closeChatbotButton.style.borderWidth = "1px";
+  // closeChatbotButton.style.borderStyle = "solid";
+  // closeChatbotButton.style.borderRadius = "50%";
+  closeChatbotButton.style.cursor = "pointer";
+  closeChatbotButton.style.zIndex = "1001"; // Ensure it's above the blur overlay
+  closeChatbotButton.style.display = "none";
+  closeChatbotButton.innerHTML =
+    '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>';
+  document.body.appendChild(closeChatbotButton);
+
+  // Toggle chat window and overlay visibility
+  chatbotButton.addEventListener("click", function () {
+    if (chatbotWindow.style.display === "none") {
+      chatbotWindow.style.display = "block";
+      closeChatbotButton.style.display = "flex";
+      blurOverlay.style.display = "block"; // Show the blurred overlay
+      chatbotButton.style.display = "none";
+    } else {
+      // chatbotWindow.style.display = "none";
+      // closeChatbotButton.style.display = "none";
+      // blurOverlay.style.display = "none"; // Hide the blurred overlay
+      // Send a message to the iframe when closed
+      chatbotIframe.postMessage({ action: "handelCloseBotIcon" }, "*");
+    }
+  });
+
+  // Close chat window and overlay when clicking the close button
+  closeChatbotButton.addEventListener("click", function () {
+    // chatbotWindow.style.display = "none";
+    // closeChatbotButton.style.display = "none";
+    // blurOverlay.style.display = "none"; // Hide the blurred overlay
+    // Send a message to the iframe when closed
+    chatbotIframe.postMessage({ action: "handelCloseBotIcon" }, "*");
+  });
+
+  // Close chat window and overlay when clicking outside the chat window (on the overlay)
+  blurOverlay.addEventListener("click", function () {
+    // chatbotWindow.style.display = "none";
+    // closeChatbotButton.style.display = "none";
+    // blurOverlay.style.display = "none"; // Hide the blurred overlay
+    // Send a message to the iframe when closed
+    chatbotIframe.postMessage({ action: "handelCloseBotIcon" }, "*");
+  });
+
+  // Listen for the postMessage to close the chatbot
+  window.addEventListener("message", function (event) {
+    if (event.data.action === "handelCloseBotModal") {
+      chatbotWindow.style.display = "none"; // Close the chatbot window
+      closeChatbotButton.style.display = "none";
+      blurOverlay.style.display = "none"; // Hide the blurred overlay
+      chatbotButton.style.display = "flex";
+    }
+  });
+})();
