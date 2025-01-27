@@ -1,210 +1,204 @@
-/* CSS: sit1.css */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #e0f7e9;
-    color: #333;
-}
-
-body {
-    background-image: url(khet.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-header {
-    background: linear-gradient(90deg, #4CAF50, #81C784);
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.nav-logo h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-.nav-links a:hover {
-    color: #ddd;
-}
-
-.header-content {
-    text-align: center;
-    padding: 20px;
-}
-
-.login-button-container {
-    margin-top: 20px;
-}
-
-#loginButton {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-#loginButton:hover {
+    /* General Body Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e0f7e9;
+        background-image: url(/All\ Images/background.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: #333;
+        
+    }
+  
+    /* Header Styles */
+    header {
+        background: linear-gradient(90deg, #4CAF50, #81C784);
+        color: white;
+        font-size: 1.2em;
+    }
+    header li:hover {
     background-color: #45a049;
-}
+    /* font-size: 1.2em; */
+    }
+    .boxes{
+        display: flex;
+        margin-top: 30px;
+    }
+    button .explore-all{
+        align-items: center;
+        
 
-.news-container {
-    background-color: #ffffff;
-    padding: 10px;
-    margin: 20px auto;
-    width: 80%;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
+    }
 
-.news-slider {
-    display: flex;
-    transition: transform 0.1s ease; /* Smooth linear movement */
-    will-change: transform; /* Optimizes the performance of transitions */
-}
+    #loginButton {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1em;
+    }
 
-.news-item {
-    min-width: 300px;
-    padding: 20px;
-    margin-right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    flex-shrink: 0; /* Prevent shrinking */
-}
+    #loginButton:hover {
+        background-color: #45a049;
+    }
+    .news-container {
+        background-color: #ffffff;
+        padding: 10px;
+        margin: 20px auto;
+        width: 80%;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
 
-main {
-    padding: 20px;
-}
+    .news-slider {
+        display: flex;
+        transition: transform 0.1s ease; /* Smooth linear movement */
+        will-change: transform; /* Optimizes the performance of transitions */
+    }
 
-.options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-}
+    .news-item {
+        min-width: 300px;
+        padding: 20px;
+        margin-right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 10px;
+        text-align: center;
+        flex-shrink: 0; /* Prevent shrinking */
+    }
 
-.option {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.option img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.option h2 {
-    font-size: 1.5em;
-    color: #4CAF50;
-    margin-top: 15px;
-}
-
-.option p {
-    font-size: 1em;
-    margin: 10px 0;
-}
-
-.option a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.option a:hover {
-    background-color: #45a049;
-}
-
-.option:hover {
-    transform: scale(1.05);
-}
-
-.explore-all {
-    margin: 20px auto;
-    display: block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
-    cursor: pointer;
-}
-
-.explore-all:hover {
-    background-color: #45a049;
-}
-a{
-text-decoration: none;
-    color: white;
-}
-/* Add this to sit1.css */
-
-footer {
-    background-color: #8B4513; /* Dull soil color */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #FFDDC1; /* Light color for contrast */
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.social-links {
+    /* Main Section */
+    .total_body{
+        display: flex;
+        justify-content: space-evenly;
+        
+    }
+   main{
+    padding: 25px;
+   }
+   .card{
     margin-top: 10px;
-}
+   
+   }
+    .sidebar{
+        background-color: rgb(227, 212, 212,0.4);
+       
+
+    }
+    .list-group{
+     width: 350px;
+     background-color: rgb(215, 213, 213);
+     z-index: 1;
+     position: sticky;
+
+    }
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .option {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        max-width: 300px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .option img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .option h2 {
+        font-size: 1.5em;
+        color: #4CAF50;
+        margin-top: 15px;
+    }
+
+    .option p {
+        font-size: 1em;
+        margin: 10px 0;
+    }
+
+    .option a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
 
+    .option a:hover {
+        background-color: #45a049;
+    }
 
+    .option:hover {
+        transform: scale(1.05);
+    }
+
+    /* Explore All Button */
+    main .explore-all {
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+
+        align-items: center ;
+
+    }
+
+    .explore-all:hover {
+        background-color: #45a049;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #8B4513; /* Dull soil color */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer a {
+        color: #FFDDC1; /* Light color for contrast */
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    .social-links {
+        margin-top: 10px;
+    }
+
+    /* Links */
+    a {
+        text-decoration: none;
+        color: white;
+    }
