@@ -2,15 +2,51 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e0f7e9;
+    background-image: url(/All\ Images/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: #333;
+    
 }
 
-.header-content {
-    padding: 20px;
-    background: linear-gradient(90deg, #4CAF50, #81C784);
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #57775b, #81C784);
     color: white;
-    text-align: center;
+    font-size: 1.2em;
+}
+header li:hover {
+background-color: #45a049;
+/* font-size: 1.2em; */
+}
+.boxes{
+    display: flex;
+    margin-top: 30px;
+}
+button .explore-all{
+    align-items: center;
+    
+
+}
+.mission img{
+    width: 13rem;
+    height: 4rem;
+}
+#loginButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#loginButton:hover {
+    background-color: #45a049;
 }
 
 .title h1 {
@@ -47,12 +83,19 @@ main {
     font-size: 1.1em;
     line-height: 1.6;
 }
+.mission .container {
+    display: flex;
 
+}
 .mission img {
-    width: 100%;
+   
+    
+    align-items: center;
+    width: 50%;
     height: auto;
     margin-top: 20px;
     border-radius: 5px;
+
 }
 
 .team-members {
@@ -117,4 +160,7 @@ footer a:hover {
 
 .social-links {
     margin-top: 10px;
+}
+.about_name{
+    background-color: rgba(255, 255, 255);
 }
