@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agriculture Assistant</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="farmer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -14,13 +15,27 @@
             object-fit: cover; /* Ensures the image fills the space without distortion */
         }
     </style>
+=======
+<link rel="stylesheet" href="farmer.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+crossorigin="anonymous"></script>
+>>>>>>> c00ef593c2f2a40a2a8f99314c1fc7ed6793f6fc
 </head>
 <body>
     <header class="main-body container-fluid">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Agriculture Assistant</a>
+<<<<<<< HEAD
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+=======
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> c00ef593c2f2a40a2a8f99314c1fc7ed6793f6fc
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,16 +47,28 @@
                             <a class="nav-link" href="#">News</a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a class="nav-link" href="market.html">Market Price</a>
+=======
+                            <a class="nav-link" href="#">Market Price</a>
+>>>>>>> c00ef593c2f2a40a2a8f99314c1fc7ed6793f6fc
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">last Price</a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a class="nav-link" href="">Your Cart</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+=======
+                            <a class="nav-link" href="Aboutus.html">Your Cart</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+>>>>>>> c00ef593c2f2a40a2a8f99314c1fc7ed6793f6fc
                                 More
                             </a>
                             <ul class="dropdown-menu">
@@ -50,7 +77,11 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
+<<<<<<< HEAD
                                 <li><a class="dropdown-item" href="#">Start Bussiness</a></li>
+=======
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+>>>>>>> c00ef593c2f2a40a2a8f99314c1fc7ed6793f6fc
                             </ul>
                         </li>
                     </ul>
@@ -68,6 +99,7 @@
         </nav>
     </header>
 
+<<<<<<< HEAD
     <div class="container mt-4">
         <!-- Add Crop Button -->
         <button class="btn btn-primary mb-4" onclick="toggleAddCropForm()">Add Crop</button>
@@ -153,5 +185,34 @@
 
 
     <script src="farmerpg.js"></script>
+=======
+    <div class="container">
+      <div id="selltitle"><h1>Sell Your Crops Here </h1></div>  
+        <div class="toolbar">
+            <button class="add-crop-btn" onclick="toggleAddCropForm()">Add Crop</button>
+            <!-- <input
+                type="text"
+                class="search-box"
+                id="search-box"
+                placeholder="Search crops..."
+                oninput="filterCrops()"
+            > -->
+        </div>
+
+        <form id="add-crop-form" onsubmit="addCrop(event)">
+            <input type="text" id="crop-name" placeholder="Enter crop name" required>
+            <input type="file" id="crop-image" accept="image/*" required>
+            <input type="number" id="crop-price" placeholder="Enter crop price" required>
+            <button type="submit">Publish</button>
+        </form>
+
+        <div class="crop-list" id="crop-list">
+           
+           
+       
+        </div>
+    </div>
+ <script src="farmerpg.js"></script>
+>>>>>>> c00ef593c2f2a40a2a8f99314c1fc7ed6793f6fc
 </body>
 </html>
