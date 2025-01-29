@@ -51,15 +51,41 @@ btn.addEventListener("input", (e) => {
 
 const formcheck = document.querySelectorAll(".form-check-input")
 let form_id = new Set();
+// form checking in the code
 
-formcheck.forEach(form=>{
-    if (form.checked){
-        const show= document.querySelector(`.${document.querySelector('.form-check-label').innerText}`);
-        console.log(show)
-    }
-})
+// formcheck.forEach(form=>{
+//    form.addEventListener('change', ()=>{
+//     let data = form.querySelector('.form-check-label')?.innerText.trim();
+//     console.log(data);
+//     if (!data) {
+//         console.log("Label text not found");
+//         return;
+//     } // Ensure this prints expected output
+//    })
+// })
 
 
+document.querySelectorAll(".form-check-input").forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+        let selectedCategories = Array.from(document.querySelectorAll(".form-check-input:checked"))
+            .map((input) => input.value.toLowerCase());
+
+        let allContainers = document.querySelectorAll(".product-category");
+
+        if (selectedCategories.length === 0) {
+            allContainers.forEach((container) => (container.style.display = "block"));
+        } else {
+            allContainers.forEach((container) => {
+                let containerId = container.id.toLowerCase();
+                if (selectedCategories.includes(containerId)) {
+                    container.style.display = "block";
+                } else {
+                    container.style.display = "none";
+                }
+            });
+        }
+    });
+});
 
 
 
