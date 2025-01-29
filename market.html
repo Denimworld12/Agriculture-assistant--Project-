@@ -1,76 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agriculture Marketplace</title>
     <link rel="stylesheet" href="market.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
-        <h1>Agriculture Marketplace</h1>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(90deg, #57775b, #81C784);">
+            <div class="container-fluid">
+                <!-- Navbar Brand -->
+                <a class="navbar-brand" href="#">Agriculture Assistant</a>
+
+                <!-- Navbar Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="main.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Market Price</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Last Price</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Aboutus.html">Your Cart</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Language</a></li>
+                                <li><a class="dropdown-item" href="Aboutus.html">About us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Search Form -->
+                    <form class="d-flex mx-auto search_button" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            id="searching" search_data>
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <!-- Log Out Button -->
+                    <button class="btn btn-outline-danger ms-2" id="loginButton">
+                        <a href="newlogin.html" style="text-decoration: none; color: inherit;">Log Out</a>
+                    </button>
+                </div>
+            </div>
+        </nav>
     </header>
-    
-    <div class="back-button">
-        <a href="main.html">Back to Main Site</a>
-    </div>
 
-    <div class="product-container">
-        <div class="product-card">
-            <img src="All Images/rice.jpeg" alt="Rice">
-            <h2>Rice</h2>
-            <p>Price: 2400 per quintal</p>
-            <p>Rating: ⭐⭐⭐⭐☆ (4.0)</p>
-            <p class="description">High-quality basmati rice, suitable for everyday meals.</p>
-            <div class="buy-button" id="buyRice">Buy Now</div>
+
+    <main>
+        <div class="sidebar">
+            <div class="container">
+                <!-- Content here -->
+                <h2 class="sidebar_header">Filter</h2>
+                <div class="Catagories_choose">
+                    <h5>Catagories</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="grocery" id="groceryCheck">
+                        <label class="form-check-label" for="groceryCheck">
+                          Grocery
+                        </label>
+                      </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="grocery" id="groceryCheck">
+                        <label class="form-check-label" for="groceryCheck">
+                          Machinery
+                        </label>
+                      </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="grocery" id="groceryCheck">
+                        <label class="form-check-label" for="groceryCheck">
+                          fertilizer
+                        </label>
+                      </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="grocery" id="groceryCheck">
+                        <label class="form-check-label" for="groceryCheck">
+                          pesticide
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="seeds" id="seedsCheck">
+                        <label class="form-check-label" for="seedsCheck">
+                          Seeds
+                        </label>
+                      </div>
+                      
+                </div>
+
+                <div class="container">
+                    <h5>Price Range</h5>
+                    <input type="range" class="form-range" min="100" max="10000" step="100" id="priceRange">
+                    <p id="priceRangeValue">Price: ₹0 - ₹10000</p>
+                </div>
+
+
+                <div class="container">
+                    <h5>Rating</h5>
+                    <select class="form-select" id="ratingFilter">
+                      <option value="all">All Ratings</option>
+                      <option value="4">4 stars and above</option>
+                      <option value="3">3 stars and above</option>
+                      <option value="2">2 stars and above</option>
+                    </select>
+                  </div>
+                  
+
+                  <button class="btn btn-danger" id="clearFilters">Clear All Filters</button>
+                  
+ 
+
+            </div>
+
+
+
         </div>
 
-        <div class="product-card">
-            <img src="All Images/wheat.png" alt="Wheat">
-            <h2>Wheat</h2>
-            <p>Price: 5000 per quintal</p>
-            <p>Rating: ⭐⭐⭐⭐☆ (4.2)</p>
-            <p class="description">Organic wheat, rich in nutrients and fiber.</p>
-            <div class="buy-button" id="buyWheat">Buy Now</div>
+        <div class="product-container">
+
+            <!-- Grocery Section -->
+            <h3 class="product_header">Grocery</h3>
+            <div class="product-category" id="Grocery">
+
+                <div class="card" style="width: 18em; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18em; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text  card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18em; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text  card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18em; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/rice.jpeg" class="card-img-top" alt="Rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Price: 2400 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.0)</p>
+                        <p class="card-text card-body">High-quality basmati rice, suitable for everyday meals.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyRice">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/wheat.png" class="card-img-top" alt="Wheat">
+                    <div class="card-body">
+                        <h5 class="card-title">Wheat</h5>
+                        <p class="card-text">Price: 5000 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.2)</p>
+                        <p class="card-text card-body">Organic wheat, rich in nutrients and fiber.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyWheat">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/wheat.png" class="card-img-top" alt="Wheat">
+                    <div class="card-body">
+                        <h5 class="card-title">Wheat</h5>
+                        <p class="card-text">Price: 5000 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.2)</p>
+                        <p class="card-text card-body">Organic wheat, rich in nutrients and fiber.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyWheat">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/wheat.png" class="card-img-top" alt="Wheat">
+                    <div class="card-body">
+                        <h5 class="card-title">Wheat</h5>
+                        <p class="card-text">Price: 5000 per quintal</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.2)</p>
+                        <p class="card-text card-body">Organic wheat, rich in nutrients and fiber.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyWheat">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Seeds Section -->
+            <h3 class="product_header">Seeds</h3>
+            <div class="product-category" id="Seeds">
+
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/seed.png" class="card-img-top" alt="Seeds">
+                    <div class="card-body">
+                        <h5 class="card-title">Quality Seeds</h5>
+                        <p class="card-text">Price: 1000 per kg</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐⭐ (4.9)</p>
+                        <p class="card-text  card-body">High germination rate seeds for various crops.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buySeeds">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Machinery Section -->
+            <h3 class="product_header">Machinery</h3>
+            <div class="product-category" id="Machinery">
+
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/tractor.jpeg" class="card-img-top" alt="Tractor">
+                    <div class="card-body">
+                        <h5 class="card-title">Tractor</h5>
+                        <p class="card-text">Price: 1200000</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐⭐ (4.8)</p>
+                        <p class="card-text card-body">High-performance tractor with advanced features.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyTractor">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="product_header">Fertilizers and Pesticides</h3>
+            <!-- Fertilizers and Pesticides Section -->
+            <div class="product-category" id="Fertilizers Pesticide">
+
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/fert.jpeg" class="card-img-top" alt="Fertilizer">
+                    <div class="card-body">
+                        <h5 class="card-title">Organic Fertilizer</h5>
+                        <p class="card-text">Price: 800 per kg</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.5)</p>
+                        <p class="card-text card-body">Eco-friendly fertilizer to boost crop yield.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyFertilizer">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem; margin-bottom: 1rem;">
+                    <img src="All Images/pestisidese.png" class="card-img-top" alt="Pesticide">
+                    <div class="card-body">
+                        <h5 class="card-title">Natural Pesticide</h5>
+                        <p class="card-text">Price: 500 per liter</p>
+                        <p class="card-text">Rating: ⭐⭐⭐⭐☆ (4.3)</p>
+                        <p class="card-text card-body">Eco-friendly pesticide to protect your crops.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary" id="buyPesticide">Contact Farmer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="product-card">
-            <img src="All Images/fert.jpeg" alt="Fertilizer">
-            <h2>Organic Fertilizer</h2>
-            <p>Price: 800 per kg</p>
-            <p>Rating: ⭐⭐⭐⭐☆ (4.5)</p>
-            <p class="description">Eco-friendly fertilizer to boost crop yield.</p>
-            <div class="buy-button" id="buyFertilizer">Buy Now</div>
-        </div>
 
-        <div class="product-card">
-            <img src="All Images/tractor.jpeg" alt="Tractor">
-            <h2>Tractor</h2>
-            <p>Price: 1200000</p>
-            <p>Rating: ⭐⭐⭐⭐⭐ (4.8)</p>
-            <p class="description">High-performance tractor with advanced features.</p>
-            <div class="buy-button" id="buyTractor">Buy Now</div>
-        </div>
-
-        <div class="product-card">
-            <img src="All Images/seed.png" alt="Seeds">
-            <h2>Quality Seeds</h2>
-            <p>Price: 1000 per kg</p>
-            <p>Rating: ⭐⭐⭐⭐⭐ (4.9)</p>
-            <p class="description">High germination rate seeds for various crops.</p>
-            <div class="buy-button" id="buySeeds">Buy Now</div>
-        </div>
-
-        <div class="product-card">
-            <img src="All Images/pestisidese.png" alt="Pesticide">
-            <h2>Natural Pesticide</h2>
-            <p>Price: 500 per liter</p>
-            <p>Rating: ⭐⭐⭐⭐☆ (4.3)</p>
-            <p class="description">Eco-friendly pesticide to protect your crops.</p>
-            <div class="buy-button" id="buyPesticide">Buy Now</div>
-        </div>
-    </div>
-
+    </main>
     <footer>
         <div class="footer-container">
             <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
@@ -81,32 +356,33 @@
             </div>
         </div>
     </footer>
+    <script src="market.js"></script>
+    <!-- <script>
+            // Add event listeners for "Contact Farmer" buttons to redirect to purchase pages
+            document.getElementById("buyRice").onclick = function() {
+                window.location.href = "https://www.amazon.in/Daawat-Rozana-Super-Basmati-Rice/dp/B075754F89/ref=sr_1_5?crid=3FBIFY3U59HXO&dib=eyJ2IjoiMSJ9.miS9RGV6g8bDQpOT8GbOTmqArwkY2zyXq5Nq-On3H7o7CHbdhumTQpYGd25oPPRrHxHy9yE5qRsXQVlzZmOgoo2R3tLh2-HqPEx9QjLpe9p7UnjVBVQPSAa5Y0De2h-GnDAHh_zrl1FAaMyj1z5Rq6vM8OJgmMxyjrTHN7Ri1mfeacFcrNRnqeeTGFkzL932gZzL-6nmNbVqLyRdd5vxWuyEB8BsAJtugOeP0PhkhidLA0X-1YQE7HI-XNyklNGJWL0fxZL0nntI5ZT2dSbSYAgJ292uQtDTQhd7iQPE4us.ncrF-uSaK4Lhn18BoADuCt8ed-7XU62Vrp7bqSyGVw8&dib_tag=se&keywords=rice&nsdOptOutParam=true&qid=1729806817&sprefix=rice%2Caps%2C235&sr=8-5";
+            };
 
-    <script>
-        // Add event listeners for "Buy Now" buttons to redirect to purchase pages
-        document.getElementById("buyRice").onclick = function() {
-            window.location.href = "https://www.amazon.in/Daawat-Rozana-Super-Basmati-Rice/dp/B075754F89/ref=sr_1_5?crid=3FBIFY3U59HXO&dib=eyJ2IjoiMSJ9.miS9RGV6g8bDQpOT8GbOTmqArwkY2zyXq5Nq-On3H7o7CHbdhumTQpYGd25oPPRrHxHy9yE5qRsXQVlzZmOgoo2R3tLh2-HqPEx9QjLpe9p7UnjVBVQPSAa5Y0De2h-GnDAHh_zrl1FAaMyj1z5Rq6vM8OJgmMxyjrTHN7Ri1mfeacFcrNRnqeeTGFkzL932gZzL-6nmNbVqLyRdd5vxWuyEB8BsAJtugOeP0PhkhidLA0X-1YQE7HI-XNyklNGJWL0fxZL0nntI5ZT2dSbSYAgJ292uQtDTQhd7iQPE4us.ncrF-uSaK4Lhn18BoADuCt8ed-7XU62Vrp7bqSyGVw8&dib_tag=se&keywords=rice&nsdOptOutParam=true&qid=1729806817&sprefix=rice%2Caps%2C235&sr=8-5";
-        };
+            document.getElementById("buyWheat").onclick = function() {
+                window.location.href = "https://www.amazon.in/Gropure-Organic-Wheat-Sharbati-5kg/dp/B085QMMKWK/ref=sr_1_5?crid=2QJSV89HF51HD&dib=eyJ2IjoiMSJ9.I0L-LaID31seh5P-_PBSt_QCjyYk1SIEH64TAuNVHpSwAXAUI_YHfRs-YjLjacDy3vrZGY_3OgKSmC2g1f2hc6wgZQtN-hdJs64a8gbu7d40tgPNDyP-HUqrNLbs8_E5WUMgkUTQrx4tvkEcyp8rKk6XGtQRFW7JsW_qhgiPREfLcLc16BeNEe2Hh0hFAa284Z1BbHl5Yrpto90JphgDjGIv39xDG_IvlzJp61hhjUtYJ_ZaPcTcdRjZwIvbk8o7RvpWfieHMtNjNSLBZXP5JYv-nSMsK1yjFYYc0jfuClA.PruQAATFk__WBW2fVQt_dRkeJhCr6gxO1eLF5d-CUSc&dib_tag=se&keywords=wheat&qid=1729806912&sprefix=wheat%2Caps%2C187&sr=8-5&th=1";
+            };
 
-        document.getElementById("buyWheat").onclick = function() {
-            window.location.href = "https://www.amazon.in/Gropure-Organic-Wheat-Sharbati-5kg/dp/B085QMMKWK/ref=sr_1_5?crid=2QJSV89HF51HD&dib=eyJ2IjoiMSJ9.I0L-LaID31seh5P-_PBSt_QCjyYk1SIEH64TAuNVHpSwAXAUI_YHfRs-YjLjacDy3vrZGY_3OgKSmC2g1f2hc6wgZQtN-hdJs64a8gbu7d40tgPNDyP-HUqrNLbs8_E5WUMgkUTQrx4tvkEcyp8rKk6XGtQRFW7JsW_qhgiPREfLcLc16BeNEe2Hh0hFAa284Z1BbHl5Yrpto90JphgDjGIv39xDG_IvlzJp61hhjUtYJ_ZaPcTcdRjZwIvbk8o7RvpWfieHMtNjNSLBZXP5JYv-nSMsK1yjFYYc0jfuClA.PruQAATFk__WBW2fVQt_dRkeJhCr6gxO1eLF5d-CUSc&dib_tag=se&keywords=wheat&qid=1729806912&sprefix=wheat%2Caps%2C187&sr=8-5&th=1";
-        };
+            document.getElementById("buyFertilizer").onclick = function() {
+                window.location.href = "https://www.bighaat.com/collections/plant-nutrition";
+            };
 
-        document.getElementById("buyFertilizer").onclick = function() {
-            window.location.href = "https://www.bighaat.com/collections/plant-nutrition";
-        };
+            document.getElementById("buyTractor").onclick = function() {
+                window.location.href = "https://www.tractorjunction.com/";
+            };
 
-        document.getElementById("buyTractor").onclick = function() {
-            window.location.href = "https://www.tractorjunction.com/";
-        };
+            document.getElementById("buySeeds").onclick = function() {
+                window.location.href = "https://www.bighaat.com/collections/seeds-online";
+            };
 
-        document.getElementById("buySeeds").onclick = function() {
-            window.location.href = "https://www.bighaat.com/collections/seeds-online";
-        };
-
-        document.getElementById("buyPesticide").onclick = function() {
-            window.location.href = "https://www.bighaat.com/collections/insecticides";
-        };
-    </script>
+            document.getElementById("buyPesticide").onclick = function() {
+                window.location.href = "https://www.bighaat.com/collections/insecticides";
+            };
+        </script> -->
 </body>
+
 </html>
