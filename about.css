@@ -129,37 +129,12 @@ main {
     color: #777;
 }
 
-.social-links {
-    margin-top: 10px;
-}
-
-.social-links a {
-    margin: 0 5px;
-    text-decoration: none;
-    color: #4CAF50;
-}
-
-footer {
-    background-color: #8B4513; /* Dull soil color */
+.footer {
+    background-color: #343a40;
     color: white;
-    padding: 20px;
     text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #FFDDC1; /* Light color for contrast */
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.social-links {
-    margin-top: 10px;
+    padding: 15px;
+    margin-top: auto;
 }
 .about_name{
     background-color: rgba(255, 255, 255);

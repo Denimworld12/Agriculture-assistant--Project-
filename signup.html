@@ -4,230 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
     <style>
-        * {
-            box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
-        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #c5dfcb;
+            background-color: #f4f4f4;
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .signup-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
-            flex-grow: 1; /* Allow the container to grow and take available space */
-        }
+        .navbar {
+            background: linear-gradient(90deg, #57775b, #81C784);
 
-        h2 {
-            color: #333;
         }
-
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
+        .navbar-brand {
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
-        .input-group input {
-            width: 95%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .signup-container {
+            max-width: 700px;
+            margin: auto;
+            margin-top: 5%;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .btn {
+        .btn-green {
+            background-color: #28a745;
+            color: white;
             width: 100%;
             padding: 10px;
-            background-color: #28a745;
             border: none;
-            color: #fff;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
         }
 
-        .btn:hover {
+        .btn-green:hover {
             background-color: #218838;
         }
 
-        .role-selection {
-            margin: 20px 0;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .role-selection img {
-            width: 80px;
-            height: 80px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 10px;
-        }
-
-        .role-selection img.selected {
-            border-color: #007BFF;
-        }
-
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        a {
-            text-decoration: none;
+        .footer {
+            background-color: #343a40;
             color: white;
-        }
-
-        .link a {
-            color: blue;
-        }
-
-        footer {
-            background-color: #8B4513; /* Dull soil color */
-            color: white;
-            padding: 20px; /* Increased padding for better spacing */
             text-align: center;
-            width: 100%; /* Ensure it stretches the full width */
-            position: relative;
-            bottom: 0;
-            margin-top: 30px; /* Added margin to create distance from signup container */
-        }
-
-        footer a {
-            color: #FFDDC1; /* Light color for contrast */
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .social-links {
-            margin-top: 10px;
-        }
-
-        .customer-care {
-            margin-top: 15px;
-            font-size: 14px; /* Slightly smaller font size for customer care */
+            padding: 15px;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Farm Assistant</a>
+        </div>
+    </nav>
+
     <div class="signup-container">
-        <h2>Sign Up</h2>
+        <h3 class="text-center">Register</h3>
         <form id="signupForm">
-            <div class="input-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname">
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullname" name="fullname" required>
             </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <button class="btn btn-primary" type="button">Verify</button>
+                </div>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" minlength="8" maxlength="16" required>
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <div class="input-group">
+                    <input type="tel" class="form-control" id="mobile" name="mobile" required>
+                    <button class="btn btn-primary" type="button">Send OTP</button>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" minlength="8" maxlength="16" required>
             </div>
 
-            <div class="role-selection">
-                <div>
-                    <img src="All Images/farmer.png" alt="Farmer" id="farmer" class="role-img" onclick="selectRole('farmer')">
-                    <p>Farmer</p>
-                </div>
-                <div>
-                    <img src="All Images/supplier.png" alt="Supplier" id="supplier" class="role-img" onclick="selectRole('supplier')">
-                    <p>Supplier</p>
-                </div>
-                <div>
-                    <img src="All Images/user.png" alt="Consumer" id="consumer" class="role-img" onclick="selectRole('consumer')">
-                    <p>Consumer</p>
-                </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="businessAccount">
+                <label class="form-check-label" for="businessAccount">
+                    I want to start a business
+                </label>
             </div>
-            <input type="hidden" id="role" name="role">
 
-            <button type="submit" class="btn">Sign Up</button>
-            <div class="error" id="signupError"></div>
+            <div class="business-section mt-3 d-none">
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city">
+                </div>
+                <label class="form-label">Business Type</label>
+                <select class="form-select mb-3" id="businessType">
+                    <option value="">Select Type</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="supplier">Supplier</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-green">Sign Up</button>
         </form>
-        <div class="link">
-            <p>Do you have an account? <a href="newlogin.html">Log in </a></p>
-        </div>
+
+        <p class="text-center mt-3">Already have an account? <a href="newlogin.html">Log in</a></p>
     </div>
-    <footer>
-        <div class="footer-container">
-            <p>Contact us at: <a href="mailto:info@farmassistant.com">farmassistant@gmail.com</a></p>
-            <div class="social-links">
-                <a href="#">LinkedIn</a> | 
-                <a href="#">X</a> | 
-                <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-.git">GitHub</a>
-            </div>
-            <div class="customer-care">
-                <p>Customer Care: Call us at +1-800-123-4567</p>
-                <p>If you need help while logging in, visit our <a href="#">Help Center</a> or <a href="#">FAQ</a>.</p>
-                <p><a href="#">Report an issue</a></p> <!-- Option for reporting issues -->
-            </div>
-        </div>
+
+    <footer class="footer">
+        <p>Contact us at: <a href="mailto:farmassistant@gmail.com" class="text-light">farmassistant@gmail.com</a></p>
+        <p>
+            <a href="#" class="text-light me-2"><i class="bi bi-linkedin"></i> LinkedIn</a> |
+            <a href="#" class="text-light mx-2"><i class="bi bi-twitter"></i> X</a> |
+            <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-" class="text-light ms-2"><i class="bi bi-github"></i> GitHub</a>
+        </p>
     </footer>
 
-  
-
     <script>
-        let selectedRole = null;
+        document.getElementById("businessAccount").addEventListener("change", function() {
+            document.querySelector(".business-section").classList.toggle("d-none", !this.checked);
+        });
 
-        function selectRole(role) {
-            selectedRole = role;
-            document.getElementById('role').value = role;
-
-            // Remove the 'selected' class from all role images
-            const roleImages = document.getElementsByClassName('role-img');
-            for (let img of roleImages) {
-                img.classList.remove('selected');
-            }
-
-            // Add 'selected' class to the clicked image
-            document.getElementById(role).classList.add('selected');
-        }
-
-        const signupForm = document.getElementById('signupForm');
-        const signupError = document.getElementById('signupError');
-
-        signupForm.addEventListener('submit', function(event) {
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
             event.preventDefault();
-
-            const fullname = document.getElementById('fullname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const role = document.getElementById('role').value;
-
-            if (fullname === "" || email === "" || password === "" || role === "") {
-                signupError.textContent = "Please fill in all fields and select a role.";
-            }else if (password.length < 8 || password.length > 16) {
-                signupError.textContent = "Password must be between 8 and 16 characters.";
-            } 
-            else {
-                signupError.textContent = "";
-                alert('Registration successful!');
-                window.location.href = "main.html"; // Redirect to main page after successful signup
-            }
+            alert("Registration successful!");
+            window.location.href = "main.html";
         });
     </script>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -174,31 +174,10 @@
     }
 
     /* Footer */
-    footer {
-        background-color: #8B4513; /* Dull soil color */
+    .footer {
+        background-color: #343a40;
         color: white;
-        padding: 20px;
         text-align: center;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-
-    footer a {
-        color: #FFDDC1; /* Light color for contrast */
-        text-decoration: none;
-    }
-
-    footer a:hover {
-        text-decoration: underline;
-    }
-
-    .social-links {
-        margin-top: 10px;
-    }
-
-    /* Links */
-    a {
-        text-decoration: none;
-        color: white;
+        padding: 15px;
+        margin-top: auto;
     }
