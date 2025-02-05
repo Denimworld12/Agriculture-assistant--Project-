@@ -131,7 +131,7 @@
             <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-" class="text-light ms-2"><i class="bi bi-github"></i> GitHub</a>
         </p>
     </footer>
-
+<!-- 
     <script>
         document.getElementById("businessAccount").addEventListener("change", function() {
             document.querySelector(".business-section").classList.toggle("d-none", !this.checked);
@@ -142,7 +142,45 @@
             alert("Registration successful!");
             window.location.href = "main.html";
         });
-    </script>
+    </script> -->
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", async (e) => {
+          e.preventDefault();
+      
+          const formData = new FormData(e.target);
+          const data = {
+            fullname: formData.get("fullname"),
+            email: formData.get("email"),
+            mobile: formData.get("mobile"),
+            password: formData.get("password"),
+            address: formData.get("address"),
+            city: formData.get("city"),
+            business_type: formData.get("businessType")
+          };
+      
+          try {
+            const response = await fetch('http://localhost:3000/api/signup', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+      
+            const result = await response.json();
+            if (response.ok) {
+              alert(result.message);
+              window.location.href = "newlogin.html"; // Redirect to login page
+            } else {
+              alert(result.error);
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during signup');
+          }
+        });
+      </script>
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

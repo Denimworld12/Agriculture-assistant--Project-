@@ -1,6 +1,6 @@
 // price range
-          document.getElementById('priceRange').oninput = function () {
-                      document.getElementById('priceRangeValue').innerText = 'Price: ₹' + this.value + ' - ₹10000';
+        document.getElementById('priceRange').oninput = function () {
+         document.getElementById('priceRangeValue').innerText = 'Price: ₹' + this.value + ' - ₹10000';
           };
 
 const btn = document.querySelector("[search_data]");
