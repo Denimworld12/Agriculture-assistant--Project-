@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    </head>
+
 
 <body>
     <header class="main-body container-fluid">
@@ -29,7 +29,7 @@
                             <a class="nav-link active" aria-current="page" href="main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">News</a>
+                            <a class="nav-link" href="Govscheme.html">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="market.html">Market Price</a>
@@ -51,7 +51,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Start Bussiness</a></li>
+                                <li><a class="dropdown-item" href="famer.html">Start Bussiness</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
                 <!-- <div class="container">Agriculture, with its allied sectors, is unquestionably the largest livelihood provider in India, more so in the vast rural areas. It also contributes a significant figure to the Gross Domestic Product (GDP). Sustainable agriculture, in terms of food security, rural employment, and environmentally sustainable technologies such as soil conservation, sustainable natural resource management and biodiversity protection, are essential for holistic rural development. Indian agriculture and allied activities have witnessed a green revolution, a white revolution, a yellow revolution and a blue revolution.
                 This section provides the information on agriculture produces; machineries, research etc. Detailed information on the government policies, schemes, agriculture loans, market prices, animal husbandry, fisheries, horticulture, loans & credit, sericulture etc. is also available.</div> -->
 
-                <div id="carouselExampleCaptions" class="carousel slide">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
                             class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -99,21 +99,21 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/All Images/Rabi_Abhiyan_21102024.jpg" class="d-block w-100" alt="...">
+                            <img src="/All Images/Rabi_Abhiyan_21102024.jpg" class="d-block w-100" alt="Slide 1">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>First slide label</h5>
                                 <p>Some representative placeholder content for the first slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="/All Images/Krishi_DSS_2_0.jpg" class="d-block w-100" alt="...">
+                            <img src="/All Images/Krishi_DSS_2_0.jpg" class="d-block w-100" alt="Slide 2">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Second slide label</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="All Images/Krishi_Nivesh_0.jpg" class="d-block w-100" alt="...">
+                            <img src="/All Images/Krishi_Nivesh_0.jpg" class="d-block w-100" alt="Slide 3">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Third slide label</h5>
                                 <p>Some representative placeholder content for the third slide.</p>
@@ -131,6 +131,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+                
 
                 <div class="card text-center">
                     <div class="card-header">
@@ -173,7 +174,7 @@
                             <div class="card col-md-3 mx-2 mb-4" style="width: 18rem;">
                                 <img src="All Images/crops2.jpg" class="card-img-top" alt="Best Selling Crops">
                                 <div class="card-body">
-                                    <h5 class="card-title">Sell your Crops</h5>
+                                    <h5 class="card-title">Start a Bussiness</h5>
                                     <p class="card-text">Sell your crops directly to customers.</p>
                                     <a href="famer.html" class="btn btn-primary">Learn More</a>
                                 </div>
@@ -204,51 +205,22 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer text-center text-light bg-dark p-3">
         <p>Contact us at: <a href="mailto:farmassistant@gmail.com" class="text-light">farmassistant@gmail.com</a></p>
         <p>
             <a href="#" class="text-light me-2"><i class="bi bi-linkedin"></i> LinkedIn</a> |
-            <a href="#" class="text-light mx-2"><i class="bi bi-twitter"></i> X</a> |
-            <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-" class="text-light ms-2"><i class="bi bi-github"></i> GitHub</a>
+            <a href="#" class="text-light mx-2"><i class="bi bi-twitter-x"></i> X</a> |
+            <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-" class="text-light ms-2">
+                <i class="bi bi-github"></i> GitHub
+            </a>
         </p>
     </footer>
+    
 
 
-
-
-
-    <script>
-        const newsSlider = document.getElementById('newsSlider');
-        let scrollAmount = 0;
-        let speed = 1; // Adjust speed for smoothness
-        let scrollWidth = newsSlider.scrollWidth; // Total width of the slider
-
-        function scrollNews() {
-            scrollAmount -= speed;
-
-            // Reset scrollAmount when it reaches the end
-            if (Math.abs(scrollAmount) >= scrollWidth) {
-                scrollAmount = 0; // Reset to the beginning
-            }
-
-            // Apply the transformation to create the scrolling effect
-            newsSlider.style.transform = `translateX(${scrollAmount}px)`;
-        }
-
-        // Call the function continuously to create the scrolling effect
-        setInterval(scrollNews, 25); // Adjust speed if necessary
-
-
-        // Make the news slider clickable
-        newsSlider.addEventListener('click', function () {
-            window.location.href = "Govscheme.html"; // Redirect to your desired URL
-        });
-        // Fix login button clickability
-        document.getElementById("loginButton").onclick = function () {
-            alert("Login clicked!");
-        };
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
 </body>
 
