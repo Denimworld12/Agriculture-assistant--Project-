@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar with Green Gradient */
+        .navbar {
+            background: linear-gradient(90deg, #57775b, #81C784);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Larger Login Container */
+        .login-container {
+            max-width: 500px;
+            margin: auto;
+            margin-top: 6%;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-google {
+            background-color: white;
+            color: #444;
+            border: 1px solid #ccc;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-google img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Farm Assistant</a>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h3 class="text-center">Login</h3>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Email</label>
+                <input type="text" class="form-control" id="username" name="username" minlength="8" maxlength="16" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <div class="text-danger mt-2 text-center" id="errorMessage"></div>
+        </form>
+
+        <!-- Google Login Button -->
+        <button class="btn-google mt-3" onclick="googleLogin()">
+            <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo"> Sign in with Google
+        </button>
+
+        <p class="text-center mt-3">Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Contact us at: <a href="mailto:farmassistant@gmail.com" class="text-light">farmassistant@gmail.com</a></p>
+        <p>
+            <a href="#" class="text-light me-2"><i class="bi bi-linkedin"></i> LinkedIn</a> |
+            <a href="#" class="text-light mx-2"><i class="bi bi-twitter"></i> X</a> |
+            <a href="https://github.com/Denimworld12/Agriculture-assistant--Project-" class="text-light ms-2"><i class="bi bi-github"></i> GitHub</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+          e.preventDefault();
+      
+          const email = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+      
+          try {
+            const response = await fetch('http://localhost:3000/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ email, password })
+            });
+      
+            const result = await response.json();
+            if (response.ok) {
+              alert(result.message);
+              window.location.href = "main.html"; // Redirect to main page
+            } else {
+              alert(result.error);
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during login');
+          }
+        });
+      </script>
+
+</body>
+</html>
