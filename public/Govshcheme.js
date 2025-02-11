@@ -1,4 +1,5 @@
 let params = new URLSearchParams(window.location.search);
+console.log("i am here")
 let query = params.get("q") || ""; // Get 'q' parameter
 let pageno = parseInt(params.get("pageno")) || 1; // Ensure pageno defaults to 1
 console.log(query, pageno);
@@ -11,7 +12,8 @@ let next = document.querySelector('#next');
 
 const fetch_news = async (query, pageno) => {
     try {
-        let response = await fetch(`/api/news?q=${query}&apiKey=4cf5fbfebd1d46078404320528628a3f&pageSize=${number_news}&pageno=${pageno}`);
+        console.log("mai yaha hu 1")
+        let response = await fetch(`/main/news?q=${query}&apiKey=4cf5fbfebd1d46078404320528628a3f&pageSize=${number_news}&pageno=${pageno}`);
         let r = await response.json();
         console.log(r);
         
@@ -28,7 +30,7 @@ const fetch_news = async (query, pageno) => {
 
         pre.href = `?q=${query}&pageno=${pageno - 1}`;
         next.href = `?q=${query}&pageno=${pageno + 1}`;
-
+        console.log("mai yaha hu 1")
         let str = "";
         for (let item of r.articles) {
             str += `

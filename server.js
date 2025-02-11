@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/signup", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "signup.html"));
+    
 });
 
 // ✅ Redirect logout to login page
@@ -49,18 +50,21 @@ app.get("/main/market", (req, res) => {
 // });
 app.get("/main/news", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "Govscheme.html"));
+
 });
 
 // ✅ Create a separate API endpoint for fetching news
-app.get("/api/news", async (req, res) => {
+app.get("/main/news", async (req, res) => {
     try {
         const q = req.query.q || "agriculture"; // Default topic: agriculture
         const pageSize = req.query.pageSize || 10;
         const pageno = req.query.pageno || 1;
         // const apiKey = 'your_api_key_here';
+        console.log("mai yaha hu 1")
         const url = `https://newsapi.org/v2/everything?`+q;
         console.log("Fetching News from:", url);
         const response = await axios.get(url);
+        console.log("mai yaha hu 1")
         res.json(response.data);
     } catch (error) {
         console.error("Error fetching news:", error);
