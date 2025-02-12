@@ -90,7 +90,11 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
+<<<<<<< HEAD
                 <input type="password" class="form-control" id="password" name="user_pass" minlength="8" maxlength="16" required>
+=======
+                <input type="password" class="form-control" id="password" name="password" minlength="3" maxlength="16" required>
+>>>>>>> b42dc72c035e537e85da0318afa03f0c957d3949
             </div>
 
             <div class="form-check">
@@ -159,7 +163,7 @@
           };
       
           try {
-            const response = await fetch('http://localhost:3000/api/signup', {
+            const response = await fetch('http://localhost:8080/api/signup', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

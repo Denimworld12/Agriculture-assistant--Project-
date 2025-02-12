@@ -2,35 +2,11 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const app = express();
+const bcrypt = require('bcryptjs');
+const cors=require('cors')
 const port = 8080;
-const mysql = require("mysql");
-const util = require("util");
-const bodyparser = require("body-parser");
-const encoder =bodyparser.urlencoded({extended: true});
 
-
-
-
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "9321675524@j",
-    database: "data"
-
-
-    }
-);
-
-connection.connect(function(error){
-    if(error) throw error
-    else console.log("connected to database successfully!")
-
-});
-
-
-
-
-
+// ✅ Middleware to serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
 
