@@ -12,13 +12,10 @@
   "description": "",
   "dependencies": {
     "axios": "^1.7.9",
-<<<<<<< HEAD
     "bcrypt": "^5.1.1",
-=======
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
->>>>>>> b42dc72c035e537e85da0318afa03f0c957d3949
     "express": "^4.21.2",
     "mysql": "^2.18.1",
     "newsapi": "^2.4.1"
