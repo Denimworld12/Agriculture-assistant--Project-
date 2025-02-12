@@ -54,22 +54,14 @@ app.get("/main/news", (req, res) => {
 });
 
 // ✅ Create a separate API endpoint for fetching news
-app.get("/main/news", async (req, res) => {
-    try {
-        const q = req.query.q || "agriculture"; // Default topic: agriculture
-        const pageSize = req.query.pageSize || 10;
-        const pageno = req.query.pageno || 1;
-        // const apiKey = 'your_api_key_here';
-        console.log("mai yaha hu 1")
-        const url = `https://newsapi.org/v2/everything?`+q;
-        console.log("Fetching News from:", url);
-        const response = await axios.get(url);
-        console.log("mai yaha hu 1")
-        res.json(response.data);
-    } catch (error) {
-        console.error("Error fetching news:", error);
-        res.status(500).json({ error: "Failed to fetch news" });
-    }
+app.get("/main/news/api", async (req, res) => {
+    const q = req._parsedUrl.query
+    console.log(q)
+    const url = `https://newsapi.org/v2/everything?`+q;
+    // +`&apiKey=4cf5fbfebd1d46078404320528628a3f`
+    let r = await axios(url)
+    let a = r.data
+    res.json(a)
 });
 app.get("/main/famer", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "famer.html"));

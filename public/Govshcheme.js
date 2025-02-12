@@ -1,6 +1,5 @@
 let params = new URLSearchParams(window.location.search);
-console.log("i am here")
-let query = params.get("q") || ""; // Get 'q' parameter
+let query = params.get("q") || "agriculture"; // Get 'q' parameter
 let pageno = parseInt(params.get("pageno")) || 1; // Ensure pageno defaults to 1
 console.log(query, pageno);
 
@@ -12,25 +11,20 @@ let next = document.querySelector('#next');
 
 const fetch_news = async (query, pageno) => {
     try {
-        console.log("mai yaha hu 1")
-        let response = await fetch(`/main/news?q=${query}&apiKey=4cf5fbfebd1d46078404320528628a3f&pageSize=${number_news}&pageno=${pageno}`);
+        let response = await fetch(`/main/news/api?q=${query}&pageno=${pageno}&apiKey=4cf5fbfebd1d46078404320528628a3f&pageSize=${number_news}&pageno=${pageno}`);
         let r = await response.json();
-        console.log(r);
-        
+        console.log(r)
         if (!r.articles || r.articles.length === 0) {
             content.innerHTML = `<p class="text-center">No news found for "${query}".</p>`;
             return;
         }
 
-        let totalpages = Math.ceil(r.totalResults / number_news);
+        totalpages = Math.ceil(r.totalResults / number_news);
         
         // Update pagination links
         pre.parentElement.classList.toggle("disabled", pageno <= 1);
         next.parentElement.classList.toggle("disabled", pageno >= totalpages);
 
-        pre.href = `?q=${query}&pageno=${pageno - 1}`;
-        next.href = `?q=${query}&pageno=${pageno + 1}`;
-        console.log("mai yaha hu 1")
         let str = "";
         for (let item of r.articles) {
             str += `
@@ -53,5 +47,22 @@ const fetch_news = async (query, pageno) => {
     }
 };
 
+pre.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (pageno > 1) {
+        const newPage = pageno - 1;
+        history.pushState(null, "", `?q=${query}&pageno=${newPage}`);
+        fetch_news(query, newPage); // Fetch new data
+    }
+});
+
+next.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (pageno < totalpages) {
+        const newPage = pageno + 1;
+        history.pushState(null, "", `?q=${query}&pageno=${newPage}`);
+        fetch_news(query, newPage); // Fetch new data
+    }
+});
 // Call the function
 fetch_news(query, pageno);
