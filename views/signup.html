@@ -90,7 +90,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" minlength="8" maxlength="16" required>
+                <input type="password" class="form-control" id="password" name="password" minlength="3" maxlength="16" required>
             </div>
 
             <div class="form-check">
@@ -159,7 +159,7 @@
           };
       
           try {
-            const response = await fetch('http://localhost:3000/api/signup', {
+            const response = await fetch('http://localhost:8080/api/signup', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

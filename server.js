@@ -1,9 +1,79 @@
 const express = require("express");
 const path = require("path");
 const axios = require("axios");
-
+const mysql=require('mysql')
 const app = express();
+const bcrypt = require('bcryptjs');
+const cors=require('cors')
 const port = 8080;
+const bodyParser = require('body-parser');
+
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: "", // Replace with your MySQL password
+    database: 'farm_assistant'
+  });
+
+  
+  db.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL:', err);
+      return;
+    }
+    console.log('Connected to MySQL database');
+  });
+
+  app.post('/api/signup', (req, res) => {
+    const { fullname, email, mobile, password, address, city, business_type } = req.body;
+  
+    // Hash the password
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
+  
+    const query = `
+      INSERT INTO users (fullname, email, mobile, password, address, city, business_type)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+  
+    db.query(query, [fullname, email, mobile, hashedPassword, address, city, business_type], (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: 'Database error', details: err });
+      }
+      res.json({ message: 'User registered successfully' });
+    });
+  });
+
+  app.post('/api/login', (req, res) => {
+    const { email, password } = req.body;
+  
+    const query = 'SELECT * FROM users WHERE email = ?';
+    db.query(query, [email], (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: 'Database error' });
+      }
+  
+      if (results.length === 0) {
+        return res.status(401).json({ error: 'User not found' });
+      }
+  
+      const user = results[0];
+  
+      // Compare passwords
+      const isPasswordValid = bcrypt.compareSync(password, user.password);
+      if (!isPasswordValid) {
+        return res.status(401).json({ error: 'Invalid password' });
+      }
+  
+      res.json({ message: 'Login successful', user });
+    });
+  });
+
 
 // ✅ Middleware to serve static files
 app.use(express.static(path.join(__dirname, "public")));
