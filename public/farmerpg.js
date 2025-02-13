@@ -36,7 +36,7 @@ function addCrop(event) {
             <div class="card-body">
                 <h5 class="card-title">${cropName}</h5>
                 <p class="card-text">${cropDescription}</p>
-                <p class="card-text">$${cropPrice}</p>
+                <p class="card-text">₹${cropPrice}</p>
                 <a href="#" class="btn btn-primary">Update</a>
             </div>
         </div>
