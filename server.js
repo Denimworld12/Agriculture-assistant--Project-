@@ -2,10 +2,35 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const app = express();
-const bcrypt = require('bcryptjs');
 const cors=require('cors')
-const port = 8080;
+const util = require("util");
 
+const port = 8080;
+const mysql=require('mysql')
+const bodyParser = require('body-parser');
+
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: "umed@123", // Replace with your MySQL password
+    database: 'data'
+  });
+
+  
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL:', err);
+      return;
+    }
+    console.log('Connected to MySQL database');
+  });
+
+  
 // ✅ Middleware to serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -111,12 +136,11 @@ app.post ('/signup',async(req,res)=>{
             await query(sql_user, [user_name, email, mobile_no, user_pass],(err)=>{
                 if(err){
                     
-                     res.send("registration fully unsuccessfull...")
+                     res.send("registration  unsuccessfull...")
                  }
 
-
-                 res.redirect("/main");
-
+                  res.redirect("/main");
+                
             });
 
             
