@@ -74,7 +74,10 @@
         <div class="sidebar ">
             <div class="list-group">
 
-                <button type="button" class="list-group-item list-group-item-action">Weather</button>
+                <button type="button" class="list-group-item list-group-item-action whether" onclick="navigateToNews()">
+                    Weather
+                  </button>
+                  
                 <button type="button" class="list-group-item list-group-item-action">Soil and Water Conservation
                 </button>
                 <button type="button" class="list-group-item list-group-item-action">Fertilizers & Pesticides</button>
@@ -217,7 +220,12 @@
     </footer>
     
 
-
+    <script>
+        function navigateToNews() {
+          const url = "/main/news?q=Weather&pageno=1";
+          window.location.href = url;
+        }
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

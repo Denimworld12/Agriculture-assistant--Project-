@@ -3,7 +3,7 @@ let query = params.get("q") || "agriculture"; // Get 'q' parameter
 let pageno = parseInt(params.get("pageno")) || 1; // Ensure pageno defaults to 1
 console.log(query, pageno);
 
-let number_news = 14; // Set page size
+let number_news = 30; // Set page size
 let totalpages;
 let content = document.querySelector('.content');
 let pre = document.querySelector('#pre');
