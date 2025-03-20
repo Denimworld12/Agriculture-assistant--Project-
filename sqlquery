@@ -1,0 +1,10 @@
+
+USE data;
+
+CREATE TABLE crops (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    crop_name VARCHAR(255) NOT NULL,
+    crop_description TEXT NOT NULL,
+    crop_price DECIMAL(10,2) NOT NULL,
+    crop_image VARCHAR(500) NOT NULL
+);

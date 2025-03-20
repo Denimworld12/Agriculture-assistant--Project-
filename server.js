@@ -2,35 +2,51 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const app = express();
-const cors=require('cors')
+const cors = require('cors')
 const util = require("util");
-
+const multer = require("multer");
 const port = 8080;
-const mysql=require('mysql')
+const mysql = require('mysql')
 const bodyParser = require('body-parser');
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: "umed@123", // Replace with your MySQL password
+    password: "9321675524@j", // Replace with your MySQL password
     database: 'data'
-  });
+});
 
-  
-  connection.connect((err) => {
+
+connection.connect((err) => {
     if (err) {
-      console.error('Error connecting to MySQL:', err);
-      return;
+        console.error('Error connecting to MySQL:', err);
+        return;
     }
     console.log('Connected to MySQL database');
-  });
+});
 
-  
+
+app.use(express.static("uploads")); // Serve uploaded files
+
+// Create 'uploads' folder if it doesn't exist
+const fs = require("fs");
+if (!fs.existsSync("uploads")) {
+    fs.mkdirSync("uploads");
+}
+
+// Configure Multer for file uploads
+const storage = multer.diskStorage({
+    destination: "uploads/", // Save files in "uploads/" directory
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Unique filename
+    },
+});
+const upload = multer({ storage: storage });
+
 // ✅ Middleware to serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -44,7 +60,7 @@ app.get("/", (req, res) => {
 
 app.get("/signup", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "signup.html"));
-    
+
 });
 
 
@@ -85,7 +101,7 @@ app.get("/main/news", (req, res) => {
 app.get("/main/news/api", async (req, res) => {
     const q = req._parsedUrl.query
     console.log(q)
-    const url = `https://newsapi.org/v2/everything?`+q;
+    const url = `https://newsapi.org/v2/everything?` + q;
     // +`&apiKey=4cf5fbfebd1d46078404320528628a3f`
     let r = await axios(url)
     let a = r.data
@@ -114,78 +130,78 @@ app.get("/main/aboutus", (req, res) => {
 
 
 //signup form
-app.post ('/signup',async(req,res)=>{
-  
+app.post('/signup', async (req, res) => {
+
     // Convert connection.query to a Promise-based function
     const query = util.promisify(connection.query).bind(connection);
-    
+
     //declare local variable to store copy of inserted data
-    var user_name =req.body.user_name;
-    var email =req.body.email;
-    var mobile_no =req.body.mobile_no;
-    var user_pass =req.body.user_pass;
-    var address =req.body.address;
-    var city =req.body.city;
-    var business_type =req.body.business_type;
-    
-        try {   // apply logic here as you want
-            
-    
-            // Insert into the user table first
-            const sql_user = "INSERT INTO user (user_name, email, mobile_no, user_pass) VALUES(?, ?, ?, ?)";
-            await query(sql_user, [user_name, email, mobile_no, user_pass],(err)=>{
-                if(err){
-                    
-                     res.send("registration  unsuccessfull...")
-                 }
+    var user_name = req.body.user_name;
+    var email = req.body.email;
+    var mobile_no = req.body.mobile_no;
+    var user_pass = req.body.user_pass;
+    var address = req.body.address;
+    var city = req.body.city;
+    var business_type = req.body.business_type;
 
-                  res.redirect("/main");
-                
-            });
+    try {   // apply logic here as you want
 
-            
-        
-            // // Insert into the business_user table
-            // const sql_business = "INSERT INTO business_user (address, city, business_type) VALUES (?, ?, ?)";
-            // await query(sql_business, [address, city, business_type],(err,result)=>{
-            //     if(err){
-            //        // res.redirect("/main");  //redirect main page
-            //         res.send("registration unsuccessfull...")
-            //     }
-            // }   );
-    
-           
-            
-    
-            // If both inserts are successfull
-            
-        } catch (err) {
-            // 
-            console.error("Error during registration:", err);
-            
-        }
-    
-    
-    })
-    
+
+        // Insert into the user table first
+        const sql_user = "INSERT INTO user (user_name, email, mobile_no, user_pass) VALUES(?, ?, ?, ?)";
+        await query(sql_user, [user_name, email, mobile_no, user_pass], (err) => {
+            if (err) {
+
+                res.send("registration  unsuccessfull...")
+            }
+
+            res.redirect("/main");
+
+        });
+
+
+
+        // // Insert into the business_user table
+        // const sql_business = "INSERT INTO business_user (address, city, business_type) VALUES (?, ?, ?)";
+        // await query(sql_business, [address, city, business_type],(err,result)=>{
+        //     if(err){
+        //        // res.redirect("/main");  //redirect main page
+        //         res.send("registration unsuccessfull...")
+        //     }
+        // }   );
+
+
+
+
+        // If both inserts are successfull
+
+    } catch (err) {
+        // 
+        console.error("Error during registration:", err);
+
+    }
+
+
+})
+
 
 
 
 
 //login form
-app.post("/",(req,res)=>{
+app.post("/", (req, res) => {
 
-    var user_name =req.body.user_name;
-    var user_pass =req.body.user_pass;
+    var user_name = req.body.user_name;
+    var user_pass = req.body.user_pass;
 
 
-    const sql="SELECT * FROM user WHERE user_name=? AND user_pass=?";
-    connection.query(sql,[user_name,user_pass],(err,result)=>{
+    const sql = "SELECT * FROM user WHERE user_name=? AND user_pass=?";
+    connection.query(sql, [user_name, user_pass], (err, result) => {
         if (err) {
             console.error("Database error:", err);
             return res.status(500).send("Internal Server Error");
         }
-        
+
         if (result.length > 0) {
             res.redirect("/main"); // Success: redirect to main page
         } else {
@@ -194,15 +210,57 @@ app.post("/",(req,res)=>{
         // if(err){
         //     console.error(err);
         //     res.send("invalid login credentials")
-           
+
         // }
         // console.log(result);
         // res.redirect("/main")
-       
+
     })
-    })
+})
+
+app.use("/uploads", express.static("uploads"));
 
 
+// app.post('/add-crop', upload.single('crop_image_file'), (req, res) => {
+//     if (!req.file) {
+//         return res.status(400).json({ message: "Image upload failed" });
+//     }
+
+//     // Save crop details in DB with image path
+//     const cropData = {
+//         crop_name: req.body.crop_name,
+//         crop_description: req.body.crop_description,
+//         crop_price: req.body.crop_price,
+//         crop_image: `/uploads/${req.file.filename}` // Store the correct path
+//     };
+
+//     // Insert cropData into your database here
+//     res.json(cropData); // Send back crop details including the image path
+// });
+
+app.post('/add-crop', upload.single('crop_image_file'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: "Image upload failed" });
+    }
+
+    // Save crop details
+    const cropData = {
+        crop_name: req.body.crop_name,
+        crop_description: req.body.crop_description,
+        crop_price: req.body.crop_price,
+        crop_image: `/uploads/${req.file.filename}`
+    };
+
+    // Insert into database here (Assuming successful)
+    res.json({ success: true, message: "Crop added successfully!", crop: cropData });
+});
+
+
+
+
+
+// Serve uploaded files statically
+app.use("/uploads", express.static("uploads"));
 
 
 
