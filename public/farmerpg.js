@@ -111,27 +111,4 @@ async function fetchCrops() {
     }
 }
 
-// document.getElementById("add-crop-form").addEventListener("submit", async function (event) {
-//     event.preventDefault(); // Prevent default form submission
 
-//     let formData = new FormData(this);
-
-//     try {
-//         let response = await fetch("http://localhost:8080/add-crop", {
-//             method: "POST",
-//             body: formData,
-//         });
-
-//         let result = await response.json();
-
-//         if (response.ok) {
-//             alert("✅ Crop added successfully!"); // Show success popup
-//             window.location.reload(); // Reload the page to show updated crops
-//         } else {
-//             alert("❌ Error: " + result.message); // Show error popup
-//         }
-//     } catch (error) {
-//         alert("❌ Failed to submit. Please try again.");
-//         console.error("Submission error:", error);
-//     }
-// });
