@@ -16,7 +16,7 @@ app.use(cors());
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: "9321675524@j", // Replace with your MySQL password
+    password: "umed123", // Replace with your MySQL password
     database: 'data'
 });
 
@@ -38,7 +38,7 @@ if (!fs.existsSync("uploads")) {
     fs.mkdirSync("uploads");
 }
 
-// Configure Multer for file uploads
+// Configure Multer for file uploads 
 const storage = multer.diskStorage({
     destination: "uploads/", // Save files in "uploads/" directory
     filename: (req, file, cb) => {
@@ -159,8 +159,6 @@ app.post('/signup', async (req, res) => {
 
         });
 
-
-
         // // Insert into the business_user table
         // const sql_business = "INSERT INTO business_user (address, city, business_type) VALUES (?, ?, ?)";
         // await query(sql_business, [address, city, business_type],(err,result)=>{
@@ -173,7 +171,7 @@ app.post('/signup', async (req, res) => {
 
 
 
-        // If both inserts are successfull
+
 
     } catch (err) {
         // 

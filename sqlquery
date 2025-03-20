@@ -1,4 +1,20 @@
 
+
+
+CREATE DATABASE data;
+
+USE data;
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    mobile_no VARCHAR(15) UNIQUE NOT NULL,
+    user_pass VARCHAR(255) NOT NULL
+);
+
+
+
 USE data;
 
 CREATE TABLE crops (
@@ -8,3 +24,14 @@ CREATE TABLE crops (
     crop_price DECIMAL(10,2) NOT NULL,
     crop_image VARCHAR(500) NOT NULL
 );
+
+-- // not compulsory
+
+CREATE TABLE business_user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    address TEXT NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    business_type ENUM('farmer', 'supplier') NOT NULL
+);
+
+
